@@ -10,7 +10,7 @@
         android:supportsRtl="false"
         android:theme="@style/Theme.VeryableCodingChallenge">
         <activity
-            android:name=".PayoutsListActivity"
+            android:name=".presentation.PayoutsListActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

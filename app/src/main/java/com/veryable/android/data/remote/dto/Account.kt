@@ -3,7 +3,7 @@ package com.veryable.android.data.remote.dto
 
 import com.google.gson.annotations.SerializedName
 
-data class AccountDto(
+data class Account(
     @SerializedName("account_name")
     val accountName: String?,
     @SerializedName("account_type")

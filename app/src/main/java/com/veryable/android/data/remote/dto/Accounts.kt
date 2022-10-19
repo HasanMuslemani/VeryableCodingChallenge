@@ -1,4 +1,4 @@
 package com.veryable.android.data.remote.dto
 
 
-class AccountsDto : ArrayList<AccountDto>()
+class Accounts() : ArrayList<Account>()
