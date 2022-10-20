@@ -29,3 +29,8 @@ Detail View to go back to the Accounts View.
 * Jetpack Compose
 * Retrofit2
 * MVVM Architecture
+
+## Completed App Screenshots ##
+<img src="https://user-images.githubusercontent.com/55886048/196859778-d42cf9d9-d916-4b3c-9c4e-3b73e2be810b.png" alt="Accounts View" style="width:200px;"/>
+<img src="https://user-images.githubusercontent.com/55886048/196860179-6e200d7f-a8d9-4080-b4f2-50718cf4e8ae.png" alt="Details View" style="width:200px;"/>
+<img src="https://user-images.githubusercontent.com/55886048/196860235-47b8876e-24b0-40e9-8b36-176c6b7eff0e.png" alt="Details View" style="width:200px;"/>
