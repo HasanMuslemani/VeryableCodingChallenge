@@ -1,5 +1,7 @@
 package com.veryable.android.presentation.accounts.components
 
+import android.util.Log.d
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
@@ -12,14 +14,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
+import com.veryable.android.R
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.veryable.android.presentation.theme.onSecondaryVariant
 
 @Composable
 fun AccountItem(
-    image: ImageVector,
+    drawable: Int,
     name: String,
     description: String,
     transferType: String
@@ -32,11 +38,17 @@ fun AccountItem(
             .padding(horizontal = 10.dp, vertical = 15.dp),
         verticalAlignment = Alignment.Top
     ) {
-        Icon(
-            imageVector = image,
+//        Icon(
+//            imageVector = painterResource(id = R),
+//            contentDescription = name,
+//            tint = MaterialTheme.colors.primary,
+//            modifier = Modifier.size(32.dp)
+//        )
+        Image(
+            painter = painterResource(id = drawable),
             contentDescription = name,
-            tint = MaterialTheme.colors.primary,
-            modifier = Modifier.size(32.dp)
+            colorFilter = ColorFilter.tint(MaterialTheme.colors.primary),
+            modifier = Modifier.size(24.dp)
         )
         Spacer(modifier = Modifier.width(10.dp))
         Row(
