@@ -24,55 +24,8 @@ class PayoutsListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             BankTheme {
-                Scaffold(
-                    topBar = {
-                        TopAppBar(
-//                            title = {
-//                                Text(
-//                                    "DETAILS",
-//                                    style = MaterialTheme.typography.h1,
-//                                    color = MaterialTheme.colors.onSecondary,
-//                                    modifier = Modifier.fillMaxWidth().background(Color.Red)
-//                                )
-//                            },
-//                            navigationIcon = {
-//                                IconButton(onClick = { /*TODO*/ }) {
-//                                    Icon(
-//                                        imageVector = Icons.Default.ArrowBack,
-//                                        contentDescription = "Back Button",
-//                                        tint = Color.Black
-//                                    )
-//                                }
-//                            },
-                            backgroundColor = MaterialTheme.colors.secondary,
-                        ) {
-                            BoxWithConstraints(
-                                modifier = Modifier.fillMaxWidth()
-                            ) {
-                                IconButton(
-                                    onClick = {  },
-                                    modifier = Modifier.align(Alignment.CenterStart)
-                                ) {
-                                    Icon(
-                                        imageVector = Icons.Default.ArrowBack,
-                                        contentDescription = "Back Button",
-                                        tint = Color.Black
-                                    )
-                                }
-                                Text(
-                                    "DETAILS",
-                                    style = MaterialTheme.typography.h1,
-                                    color = MaterialTheme.colors.onSecondary,
-                                    modifier = Modifier
-                                        .align(Alignment.Center)
-                                )
-                            }
-                        }
-                    }
-                ) {
-                    val navController = rememberNavController()
-                    Navigation(navController)
-                }
+                val navController = rememberNavController()
+                Navigation(navController)
             }
         }
     }
