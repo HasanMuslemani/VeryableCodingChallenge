@@ -1,5 +1,6 @@
 package com.veryable.android.presentation.accounts
 
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,13 +15,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import com.veryable.android.R
 import com.veryable.android.data.repository.AccountRepositoryImpl
+import com.veryable.android.presentation.Screen
 import com.veryable.android.presentation.accounts.components.AccountHeader
 import com.veryable.android.presentation.accounts.components.AccountItem
 
 @Composable
-fun AccountsScreen() {
+fun AccountsScreen(
+    navController: NavController
+) {
     val viewModel: AccountsViewModel = viewModel(
         factory = AccountsViewModelFactory(AccountRepositoryImpl())
     )
@@ -58,7 +63,14 @@ fun AccountsScreen() {
                         drawable = if (account.accountType == "bank") R.drawable.account_icon else R.drawable.card_icon,
                         name = account.accountName ?: "",
                         description = account.desc ?: "",
-                        transferType = if (account.accountType == "bank") "Bank Account: ACH - Same Day" else "Card: Instant"
+                        transferType = if (account.accountType == "bank") "Bank Account: ACH - Same Day" else "Card: Instant",
+                        onClick = {
+                            navController.currentBackStackEntry?.savedStateHandle?.set(
+                                key = "account",
+                                value = account
+                            )
+                            navController.navigate(Screen.AccountDetailsScreen.route)
+                        }
                     )
                 }
             }

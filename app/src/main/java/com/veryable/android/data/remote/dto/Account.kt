@@ -1,8 +1,11 @@
 package com.veryable.android.data.remote.dto
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Account(
     @SerializedName("account_name")
     val accountName: String?,
@@ -12,4 +15,4 @@ data class Account(
     val desc: String?,
     @SerializedName("id")
     val id: Int?
-)
+) : Parcelable

@@ -28,5 +28,8 @@ val typography = Typography(
         fontWeight = FontWeight.Normal,
         fontSize = 12.sp
     ),
-
+    button = TextStyle(
+        fontWeight = FontWeight.Normal,
+        fontSize = 18.sp
+    )
 )

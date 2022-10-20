@@ -4,6 +4,7 @@ import android.util.Log.d
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
@@ -28,22 +29,18 @@ fun AccountItem(
     drawable: Int,
     name: String,
     description: String,
-    transferType: String
+    transferType: String,
+    onClick: () -> Unit
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .background(MaterialTheme.colors.secondary)
             .border(.3.dp, Color.Gray)
+            .clickable(onClick = onClick)
             .padding(horizontal = 10.dp, vertical = 15.dp),
         verticalAlignment = Alignment.Top
     ) {
-//        Icon(
-//            imageVector = painterResource(id = R),
-//            contentDescription = name,
-//            tint = MaterialTheme.colors.primary,
-//            modifier = Modifier.size(32.dp)
-//        )
         Image(
             painter = painterResource(id = drawable),
             contentDescription = name,
