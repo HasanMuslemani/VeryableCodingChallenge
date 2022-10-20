@@ -12,10 +12,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.veryable.android.R
+import com.veryable.android.common.Constants.ACCOUNT_BACKSTACK_KEY
 import com.veryable.android.data.repository.AccountRepositoryImpl
 import com.veryable.android.presentation.Screen
 import com.veryable.android.presentation.accounts.components.AccountHeader
@@ -36,7 +38,7 @@ fun AccountsScreen(
                 backgroundColor = MaterialTheme.colors.secondary,
             ) {
                 Text(
-                    "ACCOUNTS",
+                    stringResource(R.string.app_bar_title_accounts).uppercase(),
                     style = MaterialTheme.typography.h1,
                     textAlign = TextAlign.Center,
                     color = MaterialTheme.colors.onSecondary,
@@ -56,7 +58,8 @@ fun AccountsScreen(
                         modifier = Modifier.align(Alignment.Center),
                     )
                 }
-            } else if (state.error.isNotEmpty()) {
+            }
+            else if (state.error.isNotEmpty()) {
                 Column(
                     modifier = Modifier.fillMaxSize(),
                     verticalArrangement = Arrangement.Center,
@@ -69,23 +72,24 @@ fun AccountsScreen(
                         style = MaterialTheme.typography.h2
                     )
                 }
-            } else {
+            }
+            else {
                 val accountsGrouped =
                     viewModel.accountsState.value.accounts.groupBy { it.accountType }
                 LazyColumn {
                     accountsGrouped.forEach { (accountType, accounts) ->
                         item {
-                            AccountHeader(if (accountType == "bank") "Bank Accounts" else "Cards")
+                            AccountHeader(if (accountType == "bank") stringResource(R.string.label_account_header) else stringResource(R.string.label_cards_header))
                         }
                         items(accounts) { account ->
                             AccountItem(
                                 drawable = if (account.accountType == "bank") R.drawable.account_icon else R.drawable.card_icon,
                                 name = account.accountName ?: "",
                                 description = account.desc ?: "",
-                                transferType = if (account.accountType == "bank") "Bank Account: ACH - Same Day" else "Card: Instant",
+                                transferType = if (account.accountType == "bank") stringResource(R.string.account_type_bank) else stringResource(R.string.account_type_card),
                                 onClick = {
                                     navController.currentBackStackEntry?.savedStateHandle?.set(
-                                        key = "account",
+                                        key = ACCOUNT_BACKSTACK_KEY,
                                         value = account
                                     )
                                     navController.navigate(Screen.AccountDetailsScreen.route)

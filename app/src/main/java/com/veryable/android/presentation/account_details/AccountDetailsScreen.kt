@@ -12,9 +12,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.veryable.android.R
+import com.veryable.android.common.Constants.ACCOUNT_BACKSTACK_KEY
 import com.veryable.android.data.remote.dto.Account
 import com.veryable.android.presentation.theme.onSecondaryVariant
 
@@ -22,7 +24,7 @@ import com.veryable.android.presentation.theme.onSecondaryVariant
 fun AccountDetailsScreen(
     navController: NavController
 ) {
-    val account: Account? = navController.previousBackStackEntry?.savedStateHandle?.get<Account>("account")
+    val account: Account? = navController.previousBackStackEntry?.savedStateHandle?.get<Account>(ACCOUNT_BACKSTACK_KEY)
 
     Scaffold(
         topBar = {
@@ -40,12 +42,12 @@ fun AccountDetailsScreen(
                     ) {
                         Icon(
                             imageVector = Icons.Default.ArrowBack,
-                            contentDescription = "Back Button",
+                            contentDescription = stringResource(R.string.content_description_back_icon),
                             tint = Color.Black
                         )
                     }
                     Text(
-                        "DETAILS",
+                        stringResource(R.string.app_bar_title_details).uppercase(),
                         style = MaterialTheme.typography.h1,
                         color = MaterialTheme.colors.onSecondary,
                         modifier = Modifier
@@ -68,7 +70,7 @@ fun AccountDetailsScreen(
             ) {
                 Image(
                     painter = painterResource(id = if(account?.accountType == "bank") R.drawable.account_icon else R.drawable.card_icon),
-                    contentDescription = "Account Type Icon",
+                    contentDescription = stringResource(R.string.content_description_account_icon),
                     colorFilter = ColorFilter.tint(MaterialTheme.colors.primary),
                     modifier = Modifier.size(100.dp)
                 )
@@ -99,7 +101,7 @@ fun AccountDetailsScreen(
                     .fillMaxWidth()
             ) {
                 Text(
-                    "DONE",
+                    stringResource(R.string.button_done).uppercase(),
                     style = MaterialTheme.typography.button,
                     color = MaterialTheme.colors.onPrimary,
                     modifier = Modifier

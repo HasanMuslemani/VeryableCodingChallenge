@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">Veryable Coding Challenge</string>
     <string name="welcome_to_veryable_coding_challenge">Welcome To Veryable Coding Challenge</string>
+    <string name="content_description_account_icon">Account Icon</string>
+    <string name="content_description_back_icon">Back Icon</string>
+    <string name="label_account_header">Bank Accounts</string>
+    <string name="label_cards_header">Cards</string>
+    <string name="account_type_bank">Bank Account: ACH - Same Day</string>
+    <string name="account_type_card">Card: Instant</string>
+    <string name="app_bar_title_accounts">Accounts</string>
+    <string name="app_bar_title_details">Details</string>
+    <string name="button_done">Done</string>
 </resources>

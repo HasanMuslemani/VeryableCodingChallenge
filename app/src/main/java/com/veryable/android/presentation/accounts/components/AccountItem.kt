@@ -20,6 +20,7 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.veryable.android.R
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.veryable.android.presentation.theme.onSecondaryVariant
@@ -43,7 +44,7 @@ fun AccountItem(
     ) {
         Image(
             painter = painterResource(id = drawable),
-            contentDescription = name,
+            contentDescription = stringResource(R.string.content_description_account_icon),
             colorFilter = ColorFilter.tint(MaterialTheme.colors.primary),
             modifier = Modifier.size(24.dp)
         )
@@ -77,7 +78,7 @@ fun AccountItem(
             Icon(
                 imageVector = Icons.Default.ChevronRight,
                 contentDescription = "Right Arrow Icon",
-                tint = MaterialTheme.colors.onSecondary
+                tint = MaterialTheme.colors.onSecondaryVariant
             )
         }
     }
